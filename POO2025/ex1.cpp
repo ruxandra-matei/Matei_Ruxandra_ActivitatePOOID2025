@@ -1,20 +1,31 @@
-#include <iostream.h>
-
+#include <iostream>
+#include <string>
 using namespace std;
 
-struct Restaurant {
-	char nume[50];
-	char adresa[100];
-	int rating;
+class Restaurant {
+private:
+    string nume;
+    string adresa;
+    int rating;
+
+public:
+   
+    Restaurant() {
+        this->nume = "";
+        this->adresa = "";
+        this->rating = 0;
+    }
+
+    void afisare() const {
+        cout << "Numele restaurantului este: " << nume << endl;
+        cout << "Adresa: " << adresa << endl;
+        cout << "Rating: " << rating << endl;
+    }
 };
 
-void afisareRestaurant(const Restaurant& r) {
-	cout << "Numele restaurantului este: " << r.nume << endl;
-	cout << "Adresa: " << r.adresa << endl;
-	cout << "Rating: " << r.rating << endl;
-}
 int main() {
-	Restaurant r1 = {"La Mama", "Strada Florilor 10", 5};
-	afisareRestaurant(r1);
-	return 0;
+    Restaurant r;   
+    r.afisare();
+
+    return 0;
 }
