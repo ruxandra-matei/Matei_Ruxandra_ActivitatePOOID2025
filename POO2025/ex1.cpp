@@ -44,6 +44,11 @@ public:
         cout << "Adresa: " << adresa << endl;
         cout << "Rating: " << rating << endl;
     }
+
+    friend ostream& operator<<(ostream& out, const Restaurant& r) {
+        out << r.nume << " " << r.adresa << " " << r.rating;
+        return out;
+    }
 };
 
 int main() {
@@ -53,7 +58,7 @@ int main() {
     r.setAdresa("Strada Florilor 10");
     r.setRating(5);
 
-    r.afisare();
+    cout << r;
 
     return 0;
 }
