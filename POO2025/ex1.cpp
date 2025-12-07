@@ -15,6 +15,15 @@ public:
         this->rating = 0;
     }
 
+    Restaurant& operator=(const Restaurant& r) {
+        if (this != &r) {
+            this->nume = r.nume;
+            this->adresa = r.adresa;
+            this->rating = r.rating;
+        }
+        return *this;
+    }
+
     string getNume() const {
         return this->nume;
     }
@@ -52,13 +61,15 @@ public:
 };
 
 int main() {
-    Restaurant r;
+    Restaurant r1, r2;
 
-    r.setNume("La Mama");
-    r.setAdresa("Strada Florilor 10");
-    r.setRating(5);
+    r1.setNume("La Mama");
+    r1.setAdresa("Strada Florilor 10");
+    r1.setRating(5);
 
-    cout << r;
+    r2 = r1;
+
+    cout << r2;
 
     return 0;
 }
